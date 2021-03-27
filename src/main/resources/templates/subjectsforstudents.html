@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>subjects</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+    
+ 	<link href="#" th:href="@{/css/contacts.css}" rel="stylesheet" />
+ 	
+  </head>
+
+  <body>
+	
+	<div class="container">
+	
+		<h1>Hello, <span th:text="${username}"></span>!</h1>
+		<br/>
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<h1>Subjects</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Hours</th>
+						<th>Teacher</th>
+						<th>Max Students</th>
+						<th>Add</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="subject : ${subjects}">
+						<td th:text="${subject.name}"></td>
+						<td th:text="${subject.hours}"></td>
+						<td th:text="${subject.teacher}"></td>
+						<td th:text="${subject.max_students}"></td>
+						<td>
+							<a href="#" th:href="@{/students/subjectinfo?id=__${subject.id}__}">
+								<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+							</a>	
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>	
+		
+	<div class="container">
+		<br/>
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<h1>Your subjects</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Hours</th>
+						<th>Teacher</th>
+						<th>Max Students</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="subjectstudent : ${subjectsforstudent}">
+						<td th:text="${subjectstudent.name}"></td>
+						<td th:text="${subjectstudent.hours}"></td>
+						<td th:text="${subjectstudent.teacher}"></td>
+						<td th:text="${subjectstudent.max_students}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<form th:action="@{/logout}" method="POST">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</button>
+		</form>
+	</div>
+</body>
+</html>

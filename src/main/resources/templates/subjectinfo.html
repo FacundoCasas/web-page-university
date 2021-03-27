@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>subjects</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+    
+ 	<link href="#" th:href="@{/css/contacts.css}" rel="stylesheet" />
+ 	
+  </head>
+
+  <body>
+	
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Hours</th>
+						<th>Teacher</th>
+						<th>Max Students</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:object="${subjectModel}">
+						<td th:text="${subjectModel.name}"></td>
+						<td th:text="${subjectModel.hours}"></td>
+						<td th:text="${subjectModel.teacher}"></td>
+						<td th:text="${subjectModel.max_students}"></td>
+						<td th:text="${subjectModel.description}"></td>
+						<td>	
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<a href="#" th:href="@{/students/addsubjectstudent?id=__${subjectModel.id}__}">
+			<button type="button" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add Subject</button>
+		</a>
+		<form th:action="@{/students/cancelstudents}" method="GET">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel</button>
+		</form>
+	</div>
+</body>
+</html>
