@@ -89,11 +89,12 @@ Hibernate - El framework ORM utilizado
 MySQL - Base de datos Utilizado utilizado
 
 
-Autor ✒️
+# Autor ✒️
 
-Casas Facundo - Trabajo Inicial 
+Casas Facundo  
 
 
-Expresiones de Gratitud 🎁
+# Expresiones de Gratitud 🎁
+
 Muchas Gracias por darme la oportunidad de participar en este challenge.
 
